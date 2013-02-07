@@ -11,15 +11,19 @@ Installation
 
 Clone this project at root project, same as example
 
-app
- |_ assets
- |_ controllers
-modules
-plugins
-Resources
- |_ iphone
- |_ android
- |_ alloy
-HERE
+    app
+        assets
+        controllers
+    modules
+    plugins
+    Resources
+        iphone
+        android
+        alloy
+    __HERE__
 
-Execute rake -T in root_project and voilá!!!
+Execute 
+```bash
+rake -T 
+```
+in terminal and voilá!!!
