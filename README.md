@@ -9,7 +9,7 @@ Only tested Titanium SDK 3.0.0.GA with Alloy
 Installation
 ============
 
-Clone this project in your root project
+Clone this project in your project root project
 ```bash
 git clone git@github.com:pedrobrasileiro/TiRake.git
 ```
@@ -25,7 +25,7 @@ git clone git@github.com:pedrobrasileiro/TiRake.git
         alloy
     __HERE__
 
-Create symbolic link
+Create symbolic link in project root path
 ```bash
 ln -s TiRake\rakefile.rb 
 ```
