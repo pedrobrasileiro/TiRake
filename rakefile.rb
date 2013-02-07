@@ -1,5 +1,5 @@
 $ti_option      = "--no-banner --log-level debug"
-$default_theme  = "hanzo"
+$default_theme  = "default_theme"
 $call_clean     = true
 $path_tirake    = "TiRake"
 

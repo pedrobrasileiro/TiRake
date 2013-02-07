@@ -30,8 +30,26 @@ Create symbolic link in project root path
 ln -s TiRake\rakefile.rb 
 ```
 
-Execute 
+After all, 
 ```bash
 rake -T 
 ```
-in terminal and voilá!!!
+Voilá!!!
+
+
+Themes
+==========
+
+Themes is automagically loads in rake -T. If you have 2 themes (theme1 and theme2), your rake -T return this
+```bash
+    rake android:deploy           # Deploy Android App to Dropbox
+    rake android:device           # Execute in Android Device, if connected
+    rake android:emulator         # Execute in Android Emulator
+    rake clean                    # Clean Project
+    rake ios:deploy               # Deploy iOS App to Testflight
+    rake ios:simulator            # Execute in iOS Simulator
+    rake theme1:android:emulator  # Execute in Android Emulator with theme1 Theme
+    rake theme1:ios:simulator     # Execute in iOS Simulator with theme1 Theme
+    rake theme2:android:emulator  # Execute in Android Emulator with theme2 Theme
+    rake theme2:ios:simulator     # Execute in iOS Simulator with theme2 Theme
+```
