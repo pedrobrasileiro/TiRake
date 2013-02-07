@@ -9,7 +9,10 @@ Only tested Titanium SDK 3.0.0.GA with Alloy
 Installation
 ============
 
-Clone this project at root project, same as example
+Clone this project in your root project
+```bash
+git clone git@github.com:pedrobrasileiro/TiRake.git
+```
 
     app
         assets
@@ -21,6 +24,11 @@ Clone this project at root project, same as example
         android
         alloy
     __HERE__
+
+Create symbolic link
+```bash
+ln -s TiRake\rakefile.rb 
+```
 
 Execute 
 ```bash
