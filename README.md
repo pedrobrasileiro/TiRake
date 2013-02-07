@@ -3,7 +3,7 @@ TiRake
 
 Rake scripts to Titanium Mobile + Alloy
 
-Only tested Titanium SDK 3.0.0.GA with Alloy
+**Only tested Titanium SDK 3.0.0.GA with Alloy**
 
 
 Installation
@@ -23,7 +23,7 @@ git clone git@github.com:pedrobrasileiro/TiRake.git
         iphone
         android
         alloy
-    __HERE__
+    **HERE**
 
 Create symbolic link in project root path
 ```bash
@@ -40,7 +40,7 @@ Voilá!!!
 Themes
 ==========
 
-Themes is automagically loads in rake -T. If you have 2 themes (theme1 and theme2), your rake -T return this
+Themes is automagically loads. Ex. If you have 2 themes (theme1 and theme2), your **rake -T** return this
 ```bash
     rake android:deploy           # Deploy Android App to Dropbox
     rake android:device           # Execute in Android Device, if connected
