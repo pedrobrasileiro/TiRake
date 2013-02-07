@@ -9,7 +9,7 @@ Only tested Titanium SDK 3.0.0.GA with Alloy
 Installation
 ============
 
-Clone this project in your project root project
+Clone this project in your project root path
 ```bash
 git clone git@github.com:pedrobrasileiro/TiRake.git
 ```
