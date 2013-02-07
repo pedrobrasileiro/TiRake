@@ -1,3 +1,6 @@
+
+
+
 themes = (Dir.glob("app/themes/*/").collect{|path| File.basename(path)}).reject{|dir| dir == "CVS" || dir == $default_theme}
 
 themes.each do |theme_name|
