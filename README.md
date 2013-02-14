@@ -3,7 +3,7 @@ TiRake
 
 Rake scripts to Titanium Mobile + Alloy
 
-**Only tested Titanium SDK 3.0.0.GA with Alloy**
+**Only tested Titanium SDK 3.0.0.GA with Alloy in Mac OS X**
 
 
 Installation
@@ -27,7 +27,7 @@ git clone git@github.com:pedrobrasileiro/TiRake.git
 
 Create symbolic link in project root path
 ```bash
-ln -s TiRake\rakefile.rb 
+ln -s TiRake/rakefile.rb 
 ```
 
 After all, 
