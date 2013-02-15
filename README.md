@@ -27,7 +27,7 @@ git clone git@github.com:pedrobrasileiro/TiRake.git
 
 Create symbolic link in project root path
 ```bash
-ln -s TiRake\RakeFile
+ln -s TiRake/RakeFile
 ```
 
 After all, 
