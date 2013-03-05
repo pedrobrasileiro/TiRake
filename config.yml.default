@@ -1,0 +1,11 @@
+theme:
+    default: default_theme
+build:
+    call_clean_every_build: true
+    ti_options: --no-banner --log-level debug
+testflight:
+    api_token: API_TOKEN_HERE
+    team_token: TEAM_TOKEN_HERE
+    distribution_lists: DISTRIBUTION_LISTS_HERE
+    file: FILE_NAME_HERE
+    notes: NOTES_TO_DEPLOY_HERE

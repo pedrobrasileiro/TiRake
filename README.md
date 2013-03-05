@@ -30,6 +30,11 @@ Create symbolic link in project root path
 ln -s TiRake\RakeFile
 ```
 
+Create config file after clone repo
+```bash
+cp config.yml.default config.yml
+```
+
 After all, 
 ```bash
 rake -T 
