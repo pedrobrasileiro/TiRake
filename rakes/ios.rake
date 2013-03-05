@@ -13,7 +13,7 @@ namespace :ios do
         notes = `git log --pretty=oneline --abbrev-commit -n 5`
         $tf_notes = "5 ultimos logs - :\n#{notes}"
         
-        file_path = File.join(ENV['HOME'], "Music", "iTunes", "iTunes Media", "Mobile Applications", $tf_file)
+        file_path = "#{ENV['HOME']}/Music/iTunes/iTunes Media/Mobile Applications/#{$tf_file}"
         
         unless (File.exists?(file_path))
             puts "#{file_path} do not exists."
