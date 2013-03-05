@@ -3,6 +3,9 @@ theme:
 build:
     call_clean_every_build: true
     ti_options: --no-banner --log-level debug
+    ios:
+        developer_name: IOS_DEVELOPER_NAME_HERE
+        uuid: IOS_UUID_HERE
 testflight:
     api_token: API_TOKEN_HERE
     team_token: TEAM_TOKEN_HERE

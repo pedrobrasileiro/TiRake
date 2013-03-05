@@ -13,6 +13,8 @@ else
 
     $ti_option              = config["build"]["ti_options"]
     $call_clean             = config["build"]["call_clean_every_build"]
+    $ios_developer_name     = config["build"]["ios"]["developer_name"]
+    $ios_uuid               = config["build"]["ios"]["uuid"]
     $default_theme          = config["theme"]["default"]
     $tf_api_token           = config["testflight"]["api_token"]
     $tf_team_token          = config["testflight"]["team_token"]
