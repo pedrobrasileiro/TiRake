@@ -24,7 +24,7 @@ else
     end
 end
 
-def load_vars() {
+def load_vars()
     config = YAML.load_file(path_config_file)
 
     $ti_option              = config["build"]["ti_options"]
@@ -35,4 +35,4 @@ def load_vars() {
     $tf_distribution_lists  = config["testflight"]["distribution_lists"]
     $tf_file                = config["testflight"]["file"]
     $tf_notes               = config["testflight"]["notes"]
-}
+end
