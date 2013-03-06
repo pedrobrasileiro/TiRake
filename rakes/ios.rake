@@ -18,16 +18,20 @@ end
 
 def copy_to_testflight file, count
     return nil if count >= 5 
-            
-    notes = `git log --pretty=oneline --abbrev-commit -n 5`
-    $tf_notes = "5 ultimos logs - :\n#{notes}"
+    
+    unless (`git --version`).nil?
+        notes = `git log --pretty=oneline --abbrev-commit -n 5`
+        $tf_notes = "5 ultimos logs - :\n#{notes}"
+    else
+        $tf_notes = "Send by TiRake."
+    end
             
     if (!File.exists?(file))
         puts "#{file} do not exist. Trying again in 5 seconds..."
         sleep 5
         count += 1
         copy_to_testflight file, count
-    elsif File.mtime(file) <= Time.now-60*60*5 # 5 hours
+    elsif File.mtime(file) <= Time.now-60*60 # 1 hours
         puts "File #{file} is very old or iTunes do not copy this file. Trying again in 5 seconds..."
         sleep 5
         count += 1
