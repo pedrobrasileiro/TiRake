@@ -1,6 +1,6 @@
 namespace :ios do
     task :build => [:clean] do
-        system "ti build -T device -f -b -F universal -p ios -V '#{$ios_developer_name}' -P '#{$ios_uuid}'" 
+        system "ti build -T device -f -F universal -p ios -V '#{$ios_developer_name}' -P '#{$ios_uuid}'" 
     end
     
     desc "Execute in iOS Simulator"
