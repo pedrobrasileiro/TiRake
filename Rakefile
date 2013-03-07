@@ -21,7 +21,6 @@ else
     $tf_distribution_lists  = config["testflight"]["distribution_lists"]
     $tf_ios_file            = config["testflight"]["ios"]["file"]
     $tf_android_file        = config["testflight"]["android"]["file"]
-    $tf_notes               = config["testflight"]["notes"]
     
     # Loads path rake files
     path_rakes = (Dir.glob("**/rakes/init.rake").collect{|path| File.dirname(path)}).first

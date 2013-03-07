@@ -15,8 +15,10 @@ namespace :android do
     
     desc "Deploy Android App to Testflight"
     task :testflight => [:build] do
+        notes = ENV['notes'] || $tf_android_file
         count = 0
         build_file_path = File.join FileUtils.pwd, "build", "android", "bin", $tf_android_file
-        android_to_testfligth build_file_path, count
+        
+        android_to_testflight build_file_path, count, "#{notes} - Send from TiRake"
     end
 end

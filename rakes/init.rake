@@ -26,30 +26,23 @@ namespace :theme do
     end
 end
 
-def android_to_testfligth file, count
-    copy_to_testflight file, count, "android"
+def android_to_testflight file, count, notes
+    copy_to_testflight file, count, "android", notes
 end
 
-def ios_to_testfligth file, count
-    copy_to_testflight file, count, "ios"
+def ios_to_testflight file, count, notes
+    copy_to_testflight file, count, "ios", notes
 end
 
 
-def copy_to_testflight file, count, os
+def copy_to_testflight file, count, os, notes
     if os.nil? || os.empty?
         puts "OS name required."
         return nil
     end
     
     return nil if count >= 5 
-    
-    unless (`git --version`).nil?
-        notes = `git log --pretty=oneline --abbrev-commit -n 5`
-        $tf_notes = "5 ultimos logs - :\n#{notes}"
-    else
-        $tf_notes = "Send by TiRake."
-    end
-            
+                
     if (!File.exists?(file))
         puts "#{file} do not exist. Trying again in 5 seconds..."
         sleep 5
@@ -70,8 +63,8 @@ def copy_to_testflight file, count, os
             tf_file = $tf_ios_file
         end
         
-        puts "Sending #{tf_file} to TestFlight.."
-        `curl -F file=@#{tf_file} -F api_token='#{$tf_api_token}' -F team_token='#{$tf_team_token}' -F notes='#{$tf_notes}' -F distribution_lists='#{$tf_distribution_lists}' -F notify=True --progress-bar -o tirake_testflight_upload.log http://testflightapp.com/api/builds.json`
+        puts "Sending #{tf_file} to TestFlight with notes #{$notes} ..."
+        `curl -F file=@#{tf_file} -F api_token='#{$tf_api_token}' -F team_token='#{$tf_team_token}' -F notes='#{note}' -F distribution_lists='#{$tf_distribution_lists}' -F notify=True --progress-bar -o tirake_testflight_upload.log http://testflightapp.com/api/builds.json`
 
         FileUtils.rm tf_file, force: true
     end

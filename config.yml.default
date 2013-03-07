@@ -10,7 +10,6 @@ testflight:
     api_token: API_TOKEN_HERE
     team_token: TEAM_TOKEN_HERE
     distribution_lists: DISTRIBUTION_LISTS_HERE
-    notes: NOTES_TO_DEPLOY_HERE
     ios:
         file: FILE_NAME_HERE
     android: 
