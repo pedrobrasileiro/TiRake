@@ -54,8 +54,14 @@ def copy_to_testflight file, count, os, notes
         count += 1
         copy_to_testflight file, count, os, notes
     else
+        # Waiting 5 minutes to copy file
+        sleep 5
+        
         # Copy file to actual directory
         FileUtils.cp file, "."
+        
+        # Delete file to generate new
+        FileUtils.rm file, force: true
         
         if os == "android"
             tf_file = $tf_android_file
