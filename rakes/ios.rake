@@ -11,7 +11,7 @@ namespace :ios do
     desc "Deploy iOS App to Testflight"
     task :testflight => [:build] do
         count = 0
-        build_file_path = File.join(ENV['HOME'], "Music", "iTunes", "iTunes Media", "Mobile Applications", $tf_file)
+        build_file_path = File.join(ENV['HOME'], "Music", "iTunes", "iTunes Media", "Mobile Applications", $tf_ios_file)
         ios_to_testfligth build_file_path, count
     end
     
