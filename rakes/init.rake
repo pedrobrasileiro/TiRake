@@ -47,12 +47,12 @@ def copy_to_testflight file, count, os, notes
         puts "#{file} do not exist. Trying again in 5 seconds..."
         sleep 5
         count += 1
-        copy_to_testflight file, count, os
+        copy_to_testflight file, count, os, notes
     elsif File.mtime(file) <= Time.now-60*60 # 1 hours
         puts "File #{file} is very old or iTunes do not copy this file. Trying again in 5 seconds..."
         sleep 5
         count += 1
-        copy_to_testflight file, count, os
+        copy_to_testflight file, count, os, notes
     else
         # Copy file to actual directory
         FileUtils.cp file, "."
