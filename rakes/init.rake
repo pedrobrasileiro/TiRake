@@ -25,3 +25,54 @@ namespace :theme do
         Rake::Task["theme:change"].reenable
     end
 end
+
+def android_to_testfligth file, count
+    copy_to_testflight file, count, "android"
+end
+
+def ios_to_testfligth file, count
+    copy_to_testflight file, count, "ios"
+end
+
+
+def copy_to_testflight file, count, os
+    if os.nil? || os.empty?
+        puts "OS name required."
+        return nil
+    end
+    
+    return nil if count >= 5 
+    
+    unless (`git --version`).nil?
+        notes = `git log --pretty=oneline --abbrev-commit -n 5`
+        $tf_notes = "5 ultimos logs - :\n#{notes}"
+    else
+        $tf_notes = "Send by TiRake."
+    end
+            
+    if (!File.exists?(file))
+        puts "#{file} do not exist. Trying again in 5 seconds..."
+        sleep 5
+        count += 1
+        copy_to_testflight file, count, os
+    elsif File.mtime(file) <= Time.now-60*60 # 1 hours
+        puts "File #{file} is very old or iTunes do not copy this file. Trying again in 5 seconds..."
+        sleep 5
+        count += 1
+        copy_to_testflight file, count, os
+    else
+        # Copy file to actual directory
+        FileUtils.cp file, "."
+        
+        if os == "android"
+            tf_file = $tf_android_file
+        else # iOS default
+            tf_file = $tf_ios_file
+        end
+        
+        puts "Sending #{tf_file} to TestFlight.."
+        `curl -F file=@#{tf_file} -F api_token='#{$tf_api_token}' -F team_token='#{$tf_team_token}' -F notes='#{$tf_notes}' -F distribution_lists='#{$tf_distribution_lists}' -F notify=True --progress-bar -o tirake_testflight_upload.log http://testflightapp.com/api/builds.json`
+
+        FileUtils.rm tf_file, force: true
+    end
+end

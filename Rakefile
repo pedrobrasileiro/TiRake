@@ -19,7 +19,8 @@ else
     $tf_api_token           = config["testflight"]["api_token"]
     $tf_team_token          = config["testflight"]["team_token"]
     $tf_distribution_lists  = config["testflight"]["distribution_lists"]
-    $tf_file                = config["testflight"]["file"]
+    $tf_ios_file            = config["testflight"]["ios"]["file"]
+    $tf_android_file        = config["testflight"]["android"]["file"]
     $tf_notes               = config["testflight"]["notes"]
     
     # Loads path rake files
