@@ -16,9 +16,9 @@ Prerequisites
 Installation
 ============
 
-Clone this project in your project root path
+Clone this project in your root project path
 ```bash
-git clone git@github.com:pedrobrasileiro/TiRake.git
+git clone git://github.com/pedrobrasileiro/TiRake.git
 ```
 
     app
@@ -32,14 +32,14 @@ git clone git@github.com:pedrobrasileiro/TiRake.git
         alloy
     **HERE**
 
-Create symbolic link in project root path
+Create symbolic link in root project path
 ```bash
 ln -s TiRake/RakeFile
 ```
 
 Create config file after clone repo
 ```bash
-cp config.yml.default config.yml
+cp TiRake/config.yml.default TiRake/config.yml
 ```
 
 After all, 
