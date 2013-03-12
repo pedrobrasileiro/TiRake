@@ -69,7 +69,7 @@ def copy_to_testflight file, count, os, notes
             tf_file = $tf_ios_file
         end
         
-        puts "Sending #{tf_file} to TestFlight with notes #{$notes} ..."
+        puts "Sending #{tf_file} to TestFlight with notes '#{notes}'"
         `curl -F file=@#{tf_file} -F api_token='#{$tf_api_token}' -F team_token='#{$tf_team_token}' -F notes='#{notes}' -F distribution_lists='#{$tf_distribution_lists}' -F notify=True --progress-bar -o tirake_testflight_upload.log http://testflightapp.com/api/builds.json`
 
         FileUtils.rm tf_file, force: true
