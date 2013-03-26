@@ -1,6 +1,6 @@
 namespace :android do
     task :build => [:clean] do 
-        system "ti build -p android -T emulator -b #{$ti_option}"
+        system "ti build -p android -T device -b #{$ti_option}"
     end
     
     desc "Execute in Android Emulator"
