@@ -75,3 +75,15 @@ def copy_to_testflight file, count, os, notes
         FileUtils.rm tf_file, force: true
     end
 end
+
+def select_environment env 
+    environment = (env || "development").downcase
+        
+    if environment.empty?
+        puts "Empty environment, setting to development..."
+    elsif !environment.eql?("production") && !environment.eql?("test")
+        environment = "development"
+    end
+    
+    environment
+end

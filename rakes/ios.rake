@@ -9,8 +9,8 @@ namespace :ios do
     desc "Execute in iOS Simulator"
     task :simulator => [:clean] do
         environment = select_environment ENV['env']
-        
         puts "Run simulator in #{environment} environment..."
+        
         system "ti build -p ios #{$ti_option} -D #{environment}"
     end
     
@@ -27,16 +27,4 @@ namespace :ios do
     desc "Deploy iOS App to Device via iTunes"
     task :deploy => [:build] do
     end
-end
-
-def select_environment env 
-    environment = (env || "development").downcase
-        
-    if environment.empty?
-        puts "Empty environment, setting to development..."
-    elsif !environment.eql?("production") && !environment.eql?("test")
-        environment = "development"
-    end
-    
-    environment
 end

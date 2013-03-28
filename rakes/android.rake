@@ -1,15 +1,24 @@
 namespace :android do
     task :build => [:clean] do 
-        system "ti build -p android -T device -b #{$ti_option}"
+        environment = select_environment ENV['env']
+        puts "Build for #{environment} environment..."
+        
+        system "ti build -p android -T device -b #{$ti_option} -D #{environment}"
     end
     
     desc "Execute in Android Emulator"
     task :emulator => [:clean] do 
+        environment = select_environment ENV['env']
+        puts "Run simulator in #{environment} environment..."
+        
         system "ti build -p android -T emulator #{$ti_option}"
     end
         
     desc "Execute in Android Device, if connected"
     task :device => [:clean] do 
+        environment = select_environment ENV['env']
+        puts "Run simulator in #{environment} environment..."
+        
         system "ti build -p android -T device #{$ti_option}"
     end
     
