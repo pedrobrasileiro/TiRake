@@ -1,8 +1,6 @@
 desc "Clean Project"
 task :clean do
-    if $call_clean 
-        system "ti clean --no-banner"
-    end
+    system "ti clean --no-banner"
 end
 
 namespace :theme do
