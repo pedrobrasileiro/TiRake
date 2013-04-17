@@ -28,6 +28,6 @@ namespace :android do
         count = 0
         build_file_path = File.join FileUtils.pwd, "build", "android", "bin", $tf_android_file
         
-        android_to_testflight build_file_path, count, "#{notes} - Send from TiRake"
+        android_to_testflight build_file_path, count, "#{notes} - Sent from TiRake"
     end
 end
