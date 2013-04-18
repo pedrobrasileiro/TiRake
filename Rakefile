@@ -12,7 +12,7 @@ else
     config = YAML.load_file(path_config_file)
 
     $ti_option              = config["build"]["ti_options"]
-    $call_clean             = config["build"]["call_clean_every_build"]
+    $call_clean             = config["build"]["call_clean_every_build"] || false
     $ios_developer_name     = config["build"]["ios"]["developer_name"]
     $ios_uuid               = config["build"]["ios"]["uuid"]
     $default_theme          = config["theme"]["default"]
