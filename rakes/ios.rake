@@ -38,8 +38,6 @@ namespace :ios do
 
         command = "ti build -p ios #{$ti_option} -D #{environment}"
 
-        puts "Command: #{command}"
-
         system command
     end
     
