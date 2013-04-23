@@ -90,7 +90,11 @@ def parse_version string_version
     version = nil
 
     if (`gem list | grep versionomy`).empty?
-         logger.fatal "Please, install gem versionomy with: gem install versionomy"
+        require 'logger'
+
+        logger = Logger.new(STDOUT)
+
+        logger.fatal "Please, install gem versionomy with: gem install versionomy"
     else
         puts "Versionomy installed"
         require 'versionomy'
