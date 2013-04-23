@@ -87,7 +87,7 @@ def select_environment env
 end
 
 def version_sdk
-    string_version = (`cat tiapp.xml | grep sdk-version`).gsub!(/\<sdk-version\>|\<\/sdk-version\>|.GA/, "").strip
+    string_version = (`cat tiapp.xml | grep sdk-version`).gsub!(/\<sdk-version\>|\<\/sdk-version\>|.GA|.v[0-9]*/, "").strip
 
     if (`gem list | grep versionomy`).empty?
         require 'logger'
