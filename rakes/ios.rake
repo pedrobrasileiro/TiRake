@@ -13,7 +13,7 @@ namespace :ios do
 
         if (v.major >= 3 && v.minor >= 1)
             # Setting default simulator
-            if $default_simulator == "non_retina"
+            if $default_simulator == "no_retina"
                 retina = false
                 iphone5 = false
             elsif $default_simulator == "iphone5"
@@ -24,8 +24,8 @@ namespace :ios do
                 iphone5 = false
             end
 
-            retina = ENV['retina'] || true
-            iphone5 = ENV['iphone5'] || false
+            retina = retina || ENV['retina']
+            iphone5 = iphone5 || ENV['iphone5']
             
             if iphone5
                 $ti_option = "#{$ti_option} --retina --tall"
