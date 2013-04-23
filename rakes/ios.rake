@@ -9,7 +9,7 @@ namespace :ios do
     desc "Execute in iOS Simulator"
     task :simulator => [:clean] do
         environment = select_environment ENV['env']
-        v = parse_version((`ti -v`).strip) 
+        v = version_sdk 
 
         if (v.major >= 3 && v.minor >= 1)
             # Setting default simulator

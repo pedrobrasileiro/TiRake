@@ -86,8 +86,8 @@ def select_environment env
     environment
 end
 
-def parse_version string_version
-    version = nil
+def version_sdk
+    string_version = (`cat tiapp.xml | grep sdk-version`).gsub!(/\<sdk-version\>|\<\/sdk-version\>|.GA/, "").strip
 
     if (`gem list | grep versionomy`).empty?
         require 'logger'
