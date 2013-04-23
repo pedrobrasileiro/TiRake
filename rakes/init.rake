@@ -85,3 +85,17 @@ def select_environment env
     
     environment
 end
+
+def parse_version string_version
+    version = Versionomy.create(major: 1, minor: 0) 
+
+    if (`gem list | grep versionomy`).empty?
+         logger.fatal "Please, install gem versionomy with: gem install versionomy"
+    else
+        puts "Versionomy installed"
+
+        version = Versionomy.parse(string_version)
+    end
+
+    version
+end

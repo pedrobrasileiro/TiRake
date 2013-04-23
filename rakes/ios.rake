@@ -9,6 +9,16 @@ namespace :ios do
     desc "Execute in iOS Simulator"
     task :simulator => [:clean] do
         environment = select_environment ENV['env']
+        v = parse_version((`ti -v`).strip) 
+
+        if (v.major >= 3 && v.minor >= 1) 
+            retina = ENV['retina']
+            iphone5 = ENV['iphone5']
+
+            ti_option = "#{ti_option} --retina" if retina
+            ti_option = "#{ti_option} --retina --tall" if iphone5
+        end
+
         puts "Run simulator in #{environment} environment..."
         
         system "ti build -p ios #{$ti_option} -D #{environment}"
