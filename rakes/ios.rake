@@ -11,9 +11,21 @@ namespace :ios do
         environment = select_environment ENV['env']
         v = parse_version((`ti -v`).strip) 
 
-        if (v.major >= 3 && v.minor >= 1) 
-            retina = ENV['retina']
-            iphone5 = ENV['iphone5']
+        if (v.major >= 3 && v.minor >= 1)
+            # Setting default simulator
+            if $default_simulator == "non_retina"
+                retina = false
+                iphone5 = false
+            elsif $default_simulator == "iphone5"
+                retina = false
+                iphone5 = true
+            else
+                retina = true
+                iphone5 = false
+            end
+
+            retina = ENV['retina'] || true
+            iphone5 = ENV['iphone5'] || false
             
             if iphone5
                 $ti_option = "#{$ti_option} --retina --tall"

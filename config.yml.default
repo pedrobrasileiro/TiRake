@@ -4,6 +4,7 @@ build:
     call_clean_every_build: true
     ti_options: --no-banner --log-level debug
     ios:
+        default_simulator : retina # if use TI SDK 3.1.0 or ahead, possible values are: no_retina, retina or iphone5
         developer_name: IOS_DEVELOPER_NAME_HERE
         uuid: IOS_UUID_HERE
 testflight:
