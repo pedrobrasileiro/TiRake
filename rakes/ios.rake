@@ -16,9 +16,9 @@ namespace :ios do
             iphone5 = ENV['iphone5']
             
             if iphone5
-                ti_option = "#{ti_option} --retina --tall"
+                $ti_option = "#{$ti_option} --retina --tall"
             elsif retina
-                ti_option = "#{ti_option} --retina"
+                $ti_option = "#{$ti_option} --retina"
             end
         end
 
