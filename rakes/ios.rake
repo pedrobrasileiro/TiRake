@@ -23,8 +23,12 @@ namespace :ios do
         end
 
         puts "Run simulator in #{environment} environment with #{v.to_s} sdk version..."
-        
-        system "ti build -p ios #{$ti_option} -D #{environment}"
+
+        command = "ti build -p ios #{$ti_option} -D #{environment}"
+
+        puts "Command: #{command}"
+
+        system command
     end
     
     desc "Deploy iOS App to Testflight"
