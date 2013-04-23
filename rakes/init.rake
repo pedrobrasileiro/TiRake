@@ -96,7 +96,6 @@ def parse_version string_version
 
         logger.fatal "Please, install gem versionomy with: gem install versionomy"
     else
-        puts "Versionomy installed"
         require 'versionomy'
 
         version = Versionomy.parse(string_version)

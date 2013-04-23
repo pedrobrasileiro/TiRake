@@ -14,12 +14,15 @@ namespace :ios do
         if (v.major >= 3 && v.minor >= 1) 
             retina = ENV['retina']
             iphone5 = ENV['iphone5']
-
-            ti_option = "#{ti_option} --retina" if retina
-            ti_option = "#{ti_option} --retina --tall" if iphone5
+            
+            if iphone5
+                ti_option = "#{ti_option} --retina --tall"
+            elsif retina
+                ti_option = "#{ti_option} --retina"
+            end
         end
 
-        puts "Run simulator in #{environment} environment..."
+        puts "Run simulator in #{environment} environment with #{v.to_s} sdk version..."
         
         system "ti build -p ios #{$ti_option} -D #{environment}"
     end
