@@ -89,3 +89,32 @@ rake android:testflight
 ```
 
 http://pedrobrasileiro.me
+
+Environments
+==============
+
+Use env parameter, default is development
+```bash
+rake ios:simulator env=test
+```
+
+Choice your iOS Simulador Device ( >= SDK 3.1.0 )
+===================================================
+
+User parameter to launch your prefer device simulator or set parameter default_simulator in config.yml. Default is retina=true
+
+Launch iOS Simulator - iPhone no Retina
+```bash
+rake ios:simulator retina=false
+```
+
+Launch iOS Simulator - iPhone Retina 3.5 inch
+```bash
+rake ios:simulator retina=true
+```
+
+Launch iOS Simulator - iPhone Retina 4 inch
+```bash
+rake ios:simulator iphone5=true
+```
+
