@@ -24,8 +24,8 @@ namespace :ios do
                 iphone5 = false
             end
 
-            retina = ENV['retina']
-            iphone5 = ENV['iphone5'] || false
+            retina = ENV['retina'] if !ENV['retina'].nil?
+            iphone5 = ENV['iphone5'] if !ENV['iphone5'].nil?
             
             if iphone5
                 $ti_option = "#{$ti_option} --retina --tall"
