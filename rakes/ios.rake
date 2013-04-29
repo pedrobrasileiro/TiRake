@@ -24,7 +24,7 @@ namespace :ios do
                 iphone5 = false
             end
 
-            retina = ENV['retina'] || true
+            retina = ENV['retina']
             iphone5 = ENV['iphone5'] || false
             
             if iphone5
