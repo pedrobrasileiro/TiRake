@@ -11,7 +11,7 @@ namespace :android do
         environment = select_environment ENV['env']
         puts "Run simulator in #{environment} environment..."
         
-        system "ti build -p android -T emulator #{$ti_option} -D #{environment} | egrep ^.\/Ti"
+        system "ti build -p android -T emulator #{$ti_option} -D #{environment} && adb logcat | egrep ^.\/Ti"
     end
         
     desc "Execute in Android Device, if connected"
@@ -19,7 +19,7 @@ namespace :android do
         environment = select_environment ENV['env']
         puts "Run simulator in #{environment} environment..."
         
-        system "ti build -p android -T device #{$ti_option} -D #{environment} | egrep ^.\/Ti"
+        system "ti build -p android -T device #{$ti_option} -D #{environment} && adb logcat | egrep ^.\/Ti"
     end
     
     desc "Deploy Android App to Testflight"
