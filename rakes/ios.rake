@@ -6,6 +6,13 @@ namespace :ios do
         system "ti build -T device -f -F universal -p ios -V '#{$ios_developer_name}' -P '#{$ios_uuid}' -D #{environment}" 
     end
     
+    task :adhoc => [:clean] do
+        environment = select_environment ENV['env']
+        puts "Build for #{environment} environment..."
+        
+        system "ti build -T dist-adhoc -f -F universal -p ios -P '#{$ios_uuid}' -R '#{$ios_developer_name}' -O dist" 
+    end
+    
     desc "Execute in iOS Simulator"
     task :simulator => [:clean] do
         environment = select_environment ENV['env']
@@ -42,7 +49,7 @@ namespace :ios do
     end
     
     desc "Deploy iOS App to Testflight"
-    task :testflight => [:build] do
+    task :testflight => [:adhoc] do
         notes = ENV['notes'] || $tf_ios_file
         
         count = 0
