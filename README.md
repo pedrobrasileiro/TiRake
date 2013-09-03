@@ -11,6 +11,7 @@ Prerequisites
 - Titanium CLI
 - curl
 - ruby with rake :P
+- Gem Versionomy (gem install versionomy)
 
 
 Installation
