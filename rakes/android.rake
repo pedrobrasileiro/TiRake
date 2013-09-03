@@ -30,4 +30,11 @@ namespace :android do
         
         android_to_testflight build_file_path, count, "#{notes} - Sent from TiRake"
     end
+    
+    desc "Install app on Genymotion Emulator"
+    task :genymotion => [:build] do
+      build_file_path = File.join FileUtils.pwd, "build", "android", "bin", $tf_android_file
+      
+      system "adb install -r #{build_file_path}"
+    end
 end
