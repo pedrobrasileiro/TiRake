@@ -53,7 +53,8 @@ namespace :ios do
         notes = ENV['notes'] || $tf_ios_file
         
         count = 0
-        build_file_path = File.join(ENV['HOME'], "Music", "iTunes", "iTunes Media", "Mobile Applications", $tf_ios_file)
+        # build_file_path = File.join(ENV['HOME'], "Music", "iTunes", "iTunes Media", "Mobile Applications", $tf_ios_file)
+        build_file_path = File.join("dist", $tf_ios_file)
         
         ios_to_testflight build_file_path, count, "#{notes} - Sent from TiRake"
     end
