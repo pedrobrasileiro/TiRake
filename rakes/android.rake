@@ -1,5 +1,5 @@
 namespace :android do
-  logcat = "adb logcat | egrep ^.\/Ti"
+  logcat = "adb logcat -c | adb logcat | egrep ^.\/Ti"
   
   task :build => [:clean] do 
     environment = select_environment ENV['env']
