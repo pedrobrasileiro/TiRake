@@ -21,7 +21,14 @@ namespace :android do
     environment = select_environment ENV['env']
     puts "Run simulator in #{environment} environment..."
         
-    system "ti build -p android -T device #{$ti_option} -D #{environment} && #{logcat}"
+    v = version_sdk
+
+    if (v.major >= 3 && v.minor <= 1)
+      puts "Building in Legacy Mode..."
+      system "ti build -p android -T device --legacy #{$ti_option} -D #{environment} && #{logcat}"
+    else
+      system "ti build -p android -T device #{$ti_option} -D #{environment} && #{logcat}"
+    end
   end
     
   desc "Deploy Android App to Testflight"
