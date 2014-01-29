@@ -6,6 +6,7 @@ namespace :ios do
         system "ti build -T device -f -F universal -p ios -V '#{$ios_developer_name}' -P '#{$ios_uuid}' -D #{environment}" 
     end
     
+    desc "Generate AdHoc ipa"
     task :adhoc => [:clean] do
         environment = select_environment ENV['env']
         puts "Build for #{environment} environment..."
