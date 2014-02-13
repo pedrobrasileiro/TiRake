@@ -102,7 +102,7 @@ end
 
 def get_log_android
     sdk = version_sdk
-    logcat = "adb logcat -c"
+    logcat = ""
     
     if (sdk.major <= 3 && sdk.minor < 2)
         logcat = "adb logcat -c | adb logcat | egrep ^.\/Ti"
