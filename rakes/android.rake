@@ -13,7 +13,14 @@ namespace :android do
     environment = select_environment ENV['env']
     puts "Run simulator in #{environment} environment..."
     
-    command = "ti build -p android -T emulator #{$ti_option} -D #{environment} && #{get_log_android}"
+    log = get_log_android
+    if (log.nil?)
+      log = ""
+    else
+      log = " && #{log}"
+    end
+    
+    command = "ti build -p android -T emulator #{$ti_option} -D #{environment} #{log}"
     puts "Command : #{command}"
     system command
   end
@@ -23,7 +30,14 @@ namespace :android do
     environment = select_environment ENV['env']
     puts "Run simulator in #{environment} environment..."
     
-    command = "ti build -p android -T device #{$ti_option} -D #{environment} && #{get_log_android}"
+    log = get_log_android
+    if (log.nil?)
+      log = ""
+    else
+      log = " && #{log}"
+    end
+    
+    command = "ti build -p android -T device #{$ti_option} -D #{environment} #{log}"
     puts "Command : #{command}"
     system command
   end
@@ -41,7 +55,14 @@ namespace :android do
   task :genymotion => [:build] do
     build_file_path = File.join FileUtils.pwd, "build", "android", "bin", $tf_android_file
     
-    command = "adb install -r #{build_file_path} && #{get_log_android}"
+    log = get_log_android
+    if (log.nil?)
+      log = ""
+    else
+      log = " && #{log}"
+    end
+    
+    command = "adb install -r #{build_file_path} #{log}"
     puts "Command : #{command}"
     system command
   end
