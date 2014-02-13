@@ -1,6 +1,6 @@
 namespace :android do
   sdk = version_sdk
-  if (v.major >= 3 && v.minor >= 2)
+  if (sdk.major >= 3 && sdk.minor >= 2)
     logcat = "adb logcat -c"
   else
     logcat = "adb logcat -c | adb logcat | egrep ^.\/Ti"
