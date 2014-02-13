@@ -2,31 +2,30 @@ namespace :android do
   task :build => [:clean] do 
     environment = select_environment ENV['env']
     puts "Build for #{environment} environment..."
-        
-    system "ti build -p android -T device -b #{$ti_option} -D #{environment}"
+    
+    command = "ti build -p android -T device -b #{$ti_option} -D #{environment}"
+    puts "Command : #{command}"
+    system command
   end
     
   desc "Execute in Android Emulator"
   task :emulator => [:clean] do 
     environment = select_environment ENV['env']
     puts "Run simulator in #{environment} environment..."
-        
-    system "ti build -p android -T emulator #{$ti_option} -D #{environment} && #{logcat}"
+    
+    command = "ti build -p android -T emulator #{$ti_option} -D #{environment} && #{get_log_android}"
+    puts "Command : #{command}"
+    system command
   end
         
   desc "Execute in Android Device, if connected"
   task :device => [:clean] do 
     environment = select_environment ENV['env']
     puts "Run simulator in #{environment} environment..."
-        
-    v = version_sdk
-
-    if (v.major >= 3 && v.minor <= 1)
-      puts "Building in Legacy Mode..."
-      system "ti build -p android -T device --legacy #{$ti_option} -D #{environment} && #{logcat}"
-    else
-      system "ti build -p android -T device #{$ti_option} -D #{environment} && #{logcat}"
-    end
+    
+    command = "ti build -p android -T device #{$ti_option} -D #{environment} && #{get_log_android}"
+    puts "Command : #{command}"
+    system command
   end
     
   desc "Deploy Android App to Testflight"
@@ -41,7 +40,9 @@ namespace :android do
   desc "Install app on Genymotion Emulator"
   task :genymotion => [:build] do
     build_file_path = File.join FileUtils.pwd, "build", "android", "bin", $tf_android_file
-      
-    system "adb install -r #{build_file_path} && #{logcat}"
+    
+    command = "adb install -r #{build_file_path} && #{get_log_android}"
+    puts "Command : #{command}"
+    system command
   end
 end
