@@ -1,5 +1,10 @@
 namespace :android do
-  logcat = "adb logcat -c | adb logcat | egrep ^.\/Ti"
+  sdk = version_sdk
+  if (v.major >= 3 && v.minor >= 2)
+    logcat = "adb logcat -c"
+  else
+    logcat = "adb logcat -c | adb logcat | egrep ^.\/Ti"
+  end
   
   task :build => [:clean] do 
     environment = select_environment ENV['env']
