@@ -88,18 +88,25 @@ end
 
 def version_sdk
     string_version = (`cat tiapp.xml | grep sdk-version`).gsub!(/\<sdk-version\>|\<\/sdk-version\>|.GA|.v[0-9]*/, "").strip
-
     if (`gem list | grep versionomy`).empty?
         require 'logger'
-
         logger = Logger.new(STDOUT)
-
         logger.fatal "Please, install gem versionomy with: gem install versionomy"
     else
         require 'versionomy'
-
         version = Versionomy.parse(string_version)
     end
 
     version
+end
+
+def get_log_android
+    sdk = version_sdk
+    logcat = "adb logcat -c"
+    
+    if (sdk.major <= 3 && sdk.minor < 2)
+        logcat = "adb logcat -c | adb logcat | egrep ^.\/Ti"
+    end
+    
+    logcat
 end
