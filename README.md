@@ -89,6 +89,19 @@ or
 rake android:testflight
 ```
 
+Ubertesters
+============
+
+Deploy your apps in Android and iOS with one command
+
+```bash
+rake ios:ubertesters
+```
+or
+```bash
+rake android:ubertesters
+```
+
 http://pedrobrasileiro.me
 
 Environments

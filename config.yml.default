@@ -1,17 +1,19 @@
 theme:
-    default: default_theme
+  default: default_theme
 build:
-    call_clean_every_build: true
-    ti_options: --no-banner --log-level debug
-    ios:
-        default_simulator : retina # if use TI SDK 3.1.0 or ahead, possible values are: no_retina, retina or iphone5
-        developer_name: IOS_DEVELOPER_NAME_HERE
-        uuid: IOS_UUID_HERE
+  call_clean_every_build: true
+  ti_options: --no-banner --log-level debug
+  ios:
+    default_simulator : retina # if use TI SDK 3.1.0 or ahead, possible values are: no_retina, retina or iphone5
+    developer_name: IOS_DEVELOPER_NAME_HERE
+    uuid: IOS_UUID_HERE
+ubertesters:
+  api_token: API_TOKEN_HERE
 testflight:
-    api_token: API_TOKEN_HERE
-    team_token: TEAM_TOKEN_HERE
-    distribution_lists: DISTRIBUTION_LISTS_HERE
-    ios:
-        file: FILE_NAME_HERE
-    android: 
-        file: FILE_NAME_HERE
+  api_token: API_TOKEN_HERE
+  team_token: TEAM_TOKEN_HERE
+  distribution_lists: DISTRIBUTION_LISTS_HERE
+  ios:
+    file: FILE_NAME_HERE
+  android: 
+    file: FILE_NAME_HERE

@@ -19,6 +19,7 @@ else
     $default_theme          = config["theme"]["default"]
     $tf_api_token           = config["testflight"]["api_token"]
     $tf_team_token          = config["testflight"]["team_token"]
+    $uber_api_token         = config["ubertesters"]["api_token"]
     $tf_distribution_lists  = config["testflight"]["distribution_lists"]
     $tf_ios_file            = config["testflight"]["ios"]["file"]
     $tf_android_file        = config["testflight"]["android"]["file"]
