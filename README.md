@@ -3,7 +3,7 @@ TiRake
 
 Rake scripts to Titanium Mobile + Alloy
 
-**Only tested Titanium SDK 3.0.2.GA with Titanium CLI, Alloy (for themes) in Mac OS X**
+**Only tested Titanium SDK 3.0.2.GA / 3.2.2.GA with Titanium CLI, Alloy (for themes) in Mac OS X**
 
 Prerequisites
 ===============
@@ -87,19 +87,6 @@ rake ios:testflight
 or
 ```bash
 rake android:testflight
-```
-
-Ubertesters
-============
-
-Deploy your apps in Android and iOS with one command
-
-```bash
-rake ios:ubertesters
-```
-or
-```bash
-rake android:ubertesters
 ```
 
 http://pedrobrasileiro.me
